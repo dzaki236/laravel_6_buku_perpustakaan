@@ -1,6 +1,9 @@
 <?php
 
-use Illuminate\Routing\Route;
+// use Illuminate\Support\Route;
+// use Illuminate\Provi
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +18,7 @@ use Illuminate\Routing\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
