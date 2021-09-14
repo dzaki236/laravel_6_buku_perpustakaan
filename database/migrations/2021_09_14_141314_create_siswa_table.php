@@ -15,9 +15,15 @@ class CreateSiswaTable extends Migration
     {
         Schema::create('siswa', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->
+            // $table->
             $table->string('nipd')->unique();
+            $table->string('nama_lengkap');
+            $table->string('email');
+            $table->string('no_telepon',20);
+            $table->bigInteger('kelas_id')->unsigned();
+            $table->foreign('kelas_id')->references('id')->on('kelas')->onUpdate('cascade')->onDelete(NULL);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
